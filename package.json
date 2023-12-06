@@ -1,0 +1,27 @@
+{
+  "name": "drc",
+  "version": "1.0.0",
+  "description": "dispute resolution council project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "drc"
+  },
+  "keywords": [
+    "drc"
+  ],
+  "author": "zain hanif",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.2",
+    "express": "^4.18.2",
+    "init": "^0.1.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.2",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  }
+}
