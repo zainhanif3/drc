@@ -1,0 +1,38 @@
+
+.container{
+    border: 2px solid black;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 600px;
+    margin-top: 170px;
+    padding: 10px;
+    background-color: burlywood;
+    border-radius: 40px;
+}
+.btn{
+    background-color: cadetblue;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 5px;
+    width: 280px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+    }
+input{
+    margin: 10px;
+    width: 400px;
+    height: 300px;
+    border: 2px solid rgb(59, 59, 59);
+    border-radius: 30px;
+    align-items: center;
+    text-align: center;
+}
+.btn:hover{
+    background-color: aquamarine;
+}
+input:hover{
+    cursor: pointer;
+}
