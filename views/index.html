@@ -2,23 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Dispute Resolution Council</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    <!-- Include the Tailwind CSS CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('/img/a\ hand\ drawn\ painting\ of\ a\ local\ Indian\ leader\ tal.jpg'); /* Replace 'your-background-image.jpg' with the path to your image */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Set text color to white or a suitable contrast color */
+        }
+
+        .main-content {
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 4; /* Use Tailwind spacing scale for margin (4 = 1rem) */
+        }
+    </style>
 </head>
-<body>
-    <section class="bg">
+<body class="font-sans">
 
-    </section>
+<div class="main-content">
+    <h1 class="text-4xl font-bold mb-8">Dispute Resolution Council</h1>
     
-    <script src="/js/bootstrap.min.js"></script>
-    <div class="container d-flex justify-content-center align-items-center mx-auto ">
-        <button class="btn btn-primary btn-lg align-items-center type="submit">Sign up</button>
-        <button class="btn btn-secondary btn-lg align-items-center type="submit">Sign up</button>
-
+    <div class="text-center">
+        <a href="#" class="btn btn-primary text-lg mr-2">Sign Up</a>
+        <a href="#" class="btn btn-success text-lg">Sign In</a>
     </div>
-    
-    
+</div>
+
 </body>
 </html>
