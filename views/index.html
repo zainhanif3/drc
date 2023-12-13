@@ -2,43 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dispute Resolution Council</title>
-    <!-- Include the Tailwind CSS CDN link -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="/views/output.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('/img/a\ hand\ drawn\ painting\ of\ a\ local\ Indian\ leader\ tal.jpg'); /* Replace 'your-background-image.jpg' with the path to your image */
+            background-image: url('your-background-image.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
             background-size: cover;
             background-position: center;
-            color: white; /* Set text color to white or a suitable contrast color */
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
-
-        .main-content {
-            text-align: center;
-        }
-
-        .btn {
-            margin-top: 4; /* Use Tailwind spacing scale for margin (4 = 1rem) */
+        .transparent-bg {
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust the alpha value (last parameter) for the desired opacity */
         }
     </style>
+    <title>Dispute Resolution Council</title>
 </head>
-<body class="font-sans">
+<body>
 
-<div class="main-content">
-    <h1 class="text-4xl font-bold mb-8">Dispute Resolution Council</h1>
-    
-    <div class="text-center">
-        <a href="#" class="btn btn-primary text-lg mr-2">Sign Up</a>
-        <a href="#" class="btn btn-success text-lg">Sign In</a>
+    <h1 class="text-4xl text-white mb-8">Dispute Resolution Council</h1>
+
+    <div class="bg-white p-8 rounded shadow-md w-96 transparent-bg">
+        <table class="w-full">
+            <tr>
+                <td class="text-center">
+                    <a href="sign-up.html" class="block bg-blue-500 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue hover:bg-blue-600">Sign Up</a>
+                </td>
+                <td class="text-center">
+                    <a href="sign-in.html" class="block bg-blue-500 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue hover:bg-blue-600">Sign In</a>
+                </td>
+            </tr>
+        </table>
     </div>
-</div>
 
 </body>
 </html>

@@ -8,9 +8,9 @@ const app = express();
 const staticPath = path.join(__dirname, "views");
 console.log(path.join(__dirname, "views"))
 app.use(express.static(staticPath));
-app.set("view engine","pug");
+// app.set("view engine","pug");
 app.get("/",(req, res) => {
-    res.render("index");
+    res.render("index.html");
   });
 app.get("/about", (req, res)=> {
     res.render("about")
