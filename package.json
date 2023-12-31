@@ -17,11 +17,13 @@
   "author": "zain hanif",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "init": "^0.1.2",
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.3",
     "mysql": "^2.18.1",
+    "nodemailer": "^6.9.7",
     "nodemon": "^3.0.2",
     "path": "^0.12.7",
     "pug": "^3.0.2",
