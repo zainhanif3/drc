@@ -33,3 +33,19 @@ app.get("/password", (req, res) => {
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
+// connect database
+const signup = new mongoose.Schema({
+  name:{
+    type: String
+  },
+  password:{
+    type: String
+  },
+  email:{
+    type: String
+  },
+  address:{
+    type: String
+  }
+})
+const user = mongoose.model("drc", signup)
