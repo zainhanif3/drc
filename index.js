@@ -4,11 +4,48 @@ const pug = require("pug");
 const port = 5000;
 const mongoose = require("mongoose");
 const app = express();
+const bodyParser = require ("body-parser")
 
+// connect mongodb
+mongoose.connect("mongodb://localhost:27017/drc")
+.then(()=>{
+  console.log('mongodb connected');
+})
+.catch(()=>{
+ console.log('error')
+})
+var db = mongoose.connection;
+// post data in db
 
+app.post("/sign-up",(req,res)=>{
+  var name = req.body.name;
+  var address = req.body.address;
+  var email = req.body.email;
+  var password = req.body.password;
+
+  var data = {
+    "name": name,
+    "address": address,
+    "email": email,
+    "password": password,
+  }
+  db.collection('users').insertOne(data,(err,collection)=>{
+    if(err){
+      throw err;
+    }
+    console.log("record inserted successfully");
+  });
+  return res.redirect('/')
+})
+
+// router
 const staticPath = path.join(__dirname, "views");
 console.log(path.join(__dirname, "views"));
 app.use(express.static(staticPath));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended:true
+}))
 app.set("view engine", "html");
 app.get("/", (req, res) => {
   res.render("index");
@@ -33,19 +70,5 @@ app.get("/password", (req, res) => {
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
-// connect database
-const signup = new mongoose.Schema({
-  name:{
-    type: String
-  },
-  password:{
-    type: String
-  },
-  email:{
-    type: String
-  },
-  address:{
-    type: String
-  }
-})
-const user = mongoose.model("drc", signup)
+
+

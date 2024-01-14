@@ -1,7 +1,90 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-    body 
+<!-- about.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Your Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+          <!-- Logo or website name can be added here -->
+    
+          <!-- Navigation Links -->
+          <div class="space-x-4">
+            <a href="/views/portal.html" class="text-white hover:text-gray-200">Home</a>
+            <a href="/views/about.html" class="text-white hover:text-gray-200">About</a>
+          </div>
+        </div>
+      </nav>
+
+  <!-- Include Navbar -->
+  <div class="mb-8">
+    <!-- You might need to adjust the path based on your project structure -->
+    <!-- For example, if navbar.html is in a folder named "partials," use "partials/navbar.html" -->
+    <!-- Make sure to adjust the href attribute accordingly -->
+    <include src="/views/navbar.html"></include>
+  </div>
+
+  <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Add the Tailwind CSS CDN or link to your local CSS file here -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <header class="bg-blue-500 text-white text-center py-4">
+        <h1 class="text-3xl font-bold">Welcome to Our Dispute Resolution Council</h1>
+    </header>
+
+    <section class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-lg">
+        <h2 class="text-2xl font-bold mb-4">About Us</h2>
+        <p class="mb-4">
+            The Dispute Resolution Council (DRC) is dedicated to providing a fair, efficient, and impartial
+            platform for resolving conflicts. Our aim is to facilitate negotiations and help parties find mutually
+            agreeable solutions, thus avoiding the complexities and expenses associated with traditional legal proceedings.
+        </p>
+
+        <h3 class="text-xl font-bold mb-2">Key Features</h3>
+        <ul class="list-disc pl-8 mb-4">
+            <li><strong>Neutrality and Impartiality:</strong> DRC is a neutral body that does not take sides in disputes.</li>
+            <li><strong>Voluntary Participation:</strong> Parties willingly engage in the resolution process, fostering a sense
+                of ownership.</li>
+            <li><strong>Confidentiality:</strong> DRC prioritizes confidentiality, ensuring sensitive information remains private.</li>
+            <li><strong>Flexibility:</strong> The process is informal and flexible, tailored to the specific needs of the parties.</li>
+            <li><strong>Mediation and Arbitration:</strong> DRC employs methods such as mediation or arbitration to reach
+                resolutions.</li>
+            <li><strong>Cost-Effectiveness:</strong> Resolving disputes through DRC can be quicker and more cost-effective than
+                traditional litigation.</li>
+            <li><strong>Preservation of Relationships:</strong> DRC emphasizes preserving relationships between the parties.</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+        <p class="mb-4">
+            At the Dispute Resolution Council, we strive to promote a culture of resolution over confrontation. Our goal is to
+            foster cooperation and understanding among individuals and organizations, contributing to a more harmonious
+            society.
+        </p>
+    </section>
+
+    <footer class="bg-blue-500 text-white text-center py-4">
+        <!-- Add any footer content or links here -->
+    </footer>
+
+</body>
+
+</html>
+
+
+</body>
+</html>
