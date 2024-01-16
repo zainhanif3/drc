@@ -38,6 +38,7 @@ app.post("/sign-up",(req,res)=>{
   return res.redirect('/')
 })
 
+
 // router
 const staticPath = path.join(__dirname, "views");
 console.log(path.join(__dirname, "views"));
