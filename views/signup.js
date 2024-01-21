@@ -1,17 +1,11 @@
 // server.js
 
-const express = require('express');
+const express = require ("express");
+const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const app = express();
-const port = process.env.PORT || 3000;
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/drc', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 // Create a mongoose schema
 const signupSchema = new mongoose.Schema({
@@ -31,21 +25,21 @@ const signupSchema = new mongoose.Schema({
 });
 
 // Create a mongoose model based on the schema
-const Signup = mongoose.model('Signup', signupSchema);
+const Signup = mongoose.model('signup', signupSchema);
 
 // Parse JSON bodies
 app.use(bodyParser.json());
 
 // Serve static files
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/views'));
 
 // Serve HTML file
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/signup.html');
+  res.sendFile(__dirname + '/signup.html');
 });
 
 // Handle POST request for user signup
-app.post('/signup', async (req, res) => {
+app.post('./sign-up.html', async (req, res) => {
   try {
     // Create a new instance of the Signup model
     const newSignup = new Signup(req.body);
@@ -60,6 +54,6 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+// Export the Express app
+module.exports = Signup;
+
