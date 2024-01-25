@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const pug = require("pug");
+const hbs = require("hbs");
 const port = 5000;
 const mongoose = require("mongoose");
 const app = express();
@@ -18,23 +18,24 @@ mongoose
     console.log("error");
   });
 
-app.post("/sign-up.html", async (req, res) => {
+app.post("/sign-up", async (req, res) => {
   const userData = new Signup(req.body);
   await userData.save();
-  let a = fs.readFileSync("sign-in.html");
+  let a = fs.readFileSync("sign-in");
   res.send(a.toString());
 });
 // router
 const staticPath = path.join(__dirname, "views");
 console.log(path.join(__dirname, "views"));
 app.use(express.static(staticPath));
+app.set("view engine", "hbs");
+
 app.use(bodyParser.json());
 app.use(
   express.urlencoded({
     extended: true,
   })
 );
-app.set("view engine", "html");
 app.get("/", (req, res) => {
   res.render("index");
 });
