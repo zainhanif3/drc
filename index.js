@@ -151,6 +151,7 @@ app.get("/sign-up", (req, res) => {
 app.get("/portal", (req, res) => {
   res.render("portal");
 });
+
 app.get("/password", (req, res) => {
   res.render("password");
 });
