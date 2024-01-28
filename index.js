@@ -1,71 +1,138 @@
-const express = require("express");
-const path = require("path");
-const hbs = require("hbs");
-const port = 5000;
-const mongoose = require("mongoose");
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const hbs = require ("hbs");
+
 const app = express();
-const bodyParser = require("body-parser");
-const Register = require("./models/signup1");
+const port = 3000;
 
-app.use(express.json());
-app.use(
-  express.urlencoded({
-    extended: false,
-  })
-);
-// connect mongodb
-mongoose
-  .connect("mongodb://localhost:27017/drc")
-  .then(() => {
-    console.log("mongodb connected");
-  })
-  .catch(() => {
-    console.log("error");
+mongoose.connect('mongodb://localhost:27017/drc', { useNewUrlParser: true, useUnifiedTopology: true });
+
+// Update the User model
+const User = mongoose.model('User', {
+  name: String,
+  email: String,
+  password: String,
+  fatherName: String,
+  cnic: String,
+  contactNumber: String,
+  address: String,
+  disputePerson: {
+      name: String,
+      fatherName: String,
+      contactNumber: String,
+      address: String,
+      disputeType: String,
+      explanation: String,
+      comments: [{ text: String, author: String, date: { type: Date, default: Date.now } }]
+  },
+  caseStatus: { type: String, default: 'Pending' }, // 'Pending', 'Success', 'Failure'
+  hearingDate: Date
+});
+
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.set('view engine', 'hbs');
+
+// Render the user registration page
+app.get('/', (req, res) => {
+    res.render('sign-up');
+});
+app.get('/portal',(req,res)=>{
+  res.render('portal')
+})
+
+// Handle user registration
+app.post('/register', async (req, res) => {
+    try {
+        const newUser = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: req.body.password,
+            fatherName: req.body.fatherName,
+            cnic: req.body.cnic,
+            contactNumber: req.body.contactNumber,
+            address: req.body.address,
+            disputePerson: {
+                name: req.body.disputePersonName,
+                fatherName: req.body.disputePersonFatherName,
+                contactNumber: req.body.disputePersonContactNumber,
+                address: req.body.disputePersonAddress,
+                disputeType: req.body.disputeType
+            }
+        });
+
+        await newUser.save();
+        res.redirect('/portal'); // Redirect to portal or any other page
+    } catch (error) {
+        console.error('Error saving user:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// Search Users
+app.post('/search', async (req, res) => {
+  const searchQuery = req.body.searchQuery;
+  const users = await User.find({
+      $or: [
+          { name: { $regex: searchQuery, $options: 'i' } },
+          { email: { $regex: searchQuery, $options: 'i' } },
+          { cnic: { $regex: searchQuery, $options: 'i' } },
+          { contactNumber: { $regex: searchQuery, $options: 'i' } }
+      ]
   });
-// to check that post method work or not
+  res.render('search', { users });
+});
 
-// app.post("/sign-up", async (req, res) => {
-//   try {
-//     console.log(req.body.name);
-//     res.send(req.body.name);
-
-//   }
-//   catch (error) {
-//     res.status(400).send(error);
-//   }
-// });
-
-// Post data in mongodb
-
-app.post("/sign-up", async (req, res) => {
+// Explain Dispute
+app.post('/explain-dispute', async (req, res) => {
   try {
-    const register = new Signup1({
-      name: req.body.name,
-      email: req.body.email,
-      fatherName: req.body.fathername,
-      cnic: req.body.cnic,
-      contactNumber: req.body.contactNumber,
-      address: req.body.address,
-      disputePerson: {
-        name: req.body.name,
-        fatherName: req.body.fatherName,
-        contactNumber: req.body.contactNumber,
-        address: req.body.address,
-      },
-      disputeType: req.body.disputeType,
-    });
-    const registered = await register.save();
-    res.status(201).render(portal);
+      const userId = 'user_id_here'; // Get the user ID from session or wherever it's stored
+      const user = await User.findById(userId);
+
+      user.disputePerson.explanation = req.body.explanation;
+      await user.save();
+
+      res.redirect('./portal');
   } catch (error) {
-    res.status(400).send(error);
+      console.error('Error explaining dispute:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+// Download Case Report
+app.get('/download-report/:userId', async (req, res) => {
+  try {
+      const userId = req.params.userId;
+      const user = await User.findById(userId);
+
+      // Implement report generation logic here
+      // ...
+
+      res.download('path_to_report_file', 'case_report.pdf');
+  } catch (error) {
+      console.error('Error downloading report:', error);
+      res.status(500).send('Internal Server Error');
+  }
+});
+
+// Schedule Hearing
+app.post('/schedule-hearing', async (req, res) => {
+  try {
+      const userId = 'user_id_here'; // Get the user ID from session or wherever it's stored
+      const user = await User.findById(userId);
+
+      user.hearingDate = new Date(req.body.hearingDate);
+      await user.save();
+
+      res.redirect('./portal');
+  } catch (error) {
+      console.error('Error scheduling hearing:', error);
+      res.status(500).send('Internal Server Error');
   }
 });
 
 // router
-const staticPath = path.join(__dirname, "views");
-console.log(path.join(__dirname, "views"));
-app.use(express.static(staticPath));
-app.set("view engine", "hbs");
 
 app.get("/", (req, res) => {
   res.render("index");
