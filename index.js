@@ -5,9 +5,14 @@ const port = 5000;
 const mongoose = require("mongoose");
 const app = express();
 const bodyParser = require("body-parser");
-const Signup = require ('./views/signup')
+const Register = require("./models/signup1");
 
-const fs = require("fs");
+app.use(express.json());
+app.use(
+  express.urlencoded({
+    extended: false,
+  })
+);
 // connect mongodb
 mongoose
   .connect("mongodb://localhost:27017/drc")
@@ -17,25 +22,51 @@ mongoose
   .catch(() => {
     console.log("error");
   });
+// to check that post method work or not
+
+// app.post("/sign-up", async (req, res) => {
+//   try {
+//     console.log(req.body.name);
+//     res.send(req.body.name);
+
+//   }
+//   catch (error) {
+//     res.status(400).send(error);
+//   }
+// });
+
+// Post data in mongodb
 
 app.post("/sign-up", async (req, res) => {
-  const userData = new Signup(req.body);
-  await userData.save();
-  let a = fs.readFileSync("sign-in");
-  res.send(a.toString());
+  try {
+    const register = new Signup1({
+      name: req.body.name,
+      email: req.body.email,
+      fatherName: req.body.fathername,
+      cnic: req.body.cnic,
+      contactNumber: req.body.contactNumber,
+      address: req.body.address,
+      disputePerson: {
+        name: req.body.name,
+        fatherName: req.body.fatherName,
+        contactNumber: req.body.contactNumber,
+        address: req.body.address,
+      },
+      disputeType: req.body.disputeType,
+    });
+    const registered = await register.save();
+    res.status(201).render(portal);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 });
+
 // router
 const staticPath = path.join(__dirname, "views");
 console.log(path.join(__dirname, "views"));
 app.use(express.static(staticPath));
 app.set("view engine", "hbs");
 
-app.use(bodyParser.json());
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
 app.get("/", (req, res) => {
   res.render("index");
 });

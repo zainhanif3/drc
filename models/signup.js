@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 
 
 // Create a mongoose schema
-const signupSchema = new mongoose.Schema({
+const Signup = new mongoose.Schema({
   name: String,
   email: String,
   fatherName: String,
@@ -25,7 +25,7 @@ const signupSchema = new mongoose.Schema({
 });
 
 // Create a mongoose model based on the schema
-const Signup = mongoose.model('signup', signupSchema);
+
 
 // Parse JSON bodies
 app.use(bodyParser.json());
@@ -35,11 +35,11 @@ app.use(express.static(__dirname + '/views'));
 
 // Serve HTML file
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/signup.html');
+  res.sendFile(__dirname + '/sign-up');
 });
 
 // Handle POST request for user signup
-app.post('./sign-up.html', async (req, res) => {
+app.post('./sign-up', async (req, res) => {
   try {
     // Create a new instance of the Signup model
     const newSignup = new Signup(req.body);
