@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const hbs = require ("hbs");
-
+const bcrypt = require ("bcrypt");
 const app = express();
 const port = 3000;
 
@@ -36,7 +36,7 @@ app.set('view engine', 'hbs');
 
 // Render the user registration page
 app.get('/', (req, res) => {
-    res.render('sign-up');
+    res.render('index');
 });
 app.get('/portal',(req,res)=>{
   res.render('portal')
@@ -154,6 +154,37 @@ app.get("/portal", (req, res) => {
 
 app.get("/password", (req, res) => {
   res.render("password");
+});
+
+//sign in check
+app.post('/signin', async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    // Find user by email
+    const user = await User.findOne({ email });
+    res.send(user.password);
+    console.log(user.password);
+    
+
+    if (!user) {
+      return res.status(401).json({ message: 'Invalid email' });
+    }
+
+    // Compare the provided password with the hashed password stored in the database
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    
+    
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Invalid password' });
+    }
+
+    res.status(200).json({ message: 'Sign in successful' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
 });
 
 app.listen(port, () => {

@@ -17,6 +17,7 @@
   "author": "zain hanif",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
@@ -28,7 +29,11 @@
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.2",
     "path": "^0.12.7",
-    "tailwind": "^4.0.0",
-    "tailwindcss": "^3.4.0"
+    "tailwind": "^4.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
   }
 }
