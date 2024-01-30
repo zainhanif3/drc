@@ -163,24 +163,26 @@ app.post('/signin', async (req, res) => {
   try {
     // Find user by email
     const user = await User.findOne({ email });
-    res.send(user.password);
-    console.log(user.password);
     
+  
 
     if (!user) {
-      return res.status(401).json({ message: 'Invalid email' });
+      return res.status(401).json({ message: 'Invalid email ' });
     }
 
     // Compare the provided password with the hashed password stored in the database
-    const isPasswordValid = await bcrypt.compare(password, user.password);
-    
     
 
-    if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Invalid password' });
+    if (user.password === password) {
+      res.status(200).redirect('/portal');
+      
+    }else{
+      res.send("password not match");
     }
+   
 
-    res.status(200).json({ message: 'Sign in successful' });
+    // Redirect to the portal page after successful sign-in
+    
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal Server Error' });
