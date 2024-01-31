@@ -17,15 +17,7 @@ const User = mongoose.model('User', {
   cnic: String,
   contactNumber: String,
   address: String,
-  disputePerson: {
-      name: String,
-      fatherName: String,
-      contactNumber: String,
-      address: String,
-      disputeType: String,
-      explanation: String,
-      comments: [{ text: String, author: String, date: { type: Date, default: Date.now } }]
-  },
+  
   caseStatus: { type: String, default: 'Pending' }, // 'Pending', 'Success', 'Failure'
   hearingDate: Date
 });
@@ -53,13 +45,7 @@ app.post('/register', async (req, res) => {
             cnic: req.body.cnic,
             contactNumber: req.body.contactNumber,
             address: req.body.address,
-            disputePerson: {
-                name: req.body.disputePersonName,
-                fatherName: req.body.disputePersonFatherName,
-                contactNumber: req.body.disputePersonContactNumber,
-                address: req.body.disputePersonAddress,
-                disputeType: req.body.disputeType
-            }
+            
         });
 
         await newUser.save();

@@ -13,7 +13,7 @@
   </head>
   <body class="bg-gray-200 font-sans">
 
-    <div class="container mx-auto mt-10 p-5">
+    <div class="container mx-20 mt-10 p-5">
       <h1 class="text-2xl font-semibold mb-6">User Signup</h1>
       <form action="/register" method="POST" class="grid grid-cols-2 gap-4">
         <!-- First Column -->
@@ -99,72 +99,8 @@
           <!-- Repeat the above pattern for other fields in the first column -->
         </div>
 
-        <!-- Second Column -->
-        <div>
-          <label
-            for="disputePersonName"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Dispute Person Name</label>
-          <input
-            type="text"
-            id="disputePersonName"
-            name="disputePersonName"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="disputePersonFatherName"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Dispute Person Father Name</label>
-          <input
-            type="text"
-            id="disputePersonFatherName"
-            name="disputePersonFatherName"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="disputePersonContactNumber"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Dispute Person Contact Number</label>
-          <input
-            type="number"
-            id="disputePersonContactNumber"
-            name="disputePersonContactNumber"
-            class="border rounded w-full py-2 px-3"
-          />
-          <label
-            for="disputePersonAddress"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Dispute Person Address</label>
-          <input
-            type="text"
-            id="disputePersonAddress"
-            name="disputePersonAddress"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-
-          <label
-            for="dispute-type"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Dispute Type</label>
-          <select
-            id="dispute-type"
-            name="disputeType"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-            <option value="Money/Loan">Money/Loan</option>
-            <option value="Home">Home</option>
-            <option value="Land">Land</option>
-            <option value="Vehicle">Vehicle</option>
-            <option value="Assault">Assault</option>
-            <option value="Others">Others</option>
-          </select>
-
-          <!-- Add other fields for the second column -->
-        </div>
+        
+        
 
         <div class="col-span-2">
           <button
