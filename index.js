@@ -5,6 +5,8 @@ const hbs = require ("hbs");
 const bcrypt = require ("bcrypt");
 const app = express();
 const port = 3000;
+const path = require ("path")
+
 
 mongoose.connect('mongodb://localhost:27017/drc', { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -25,6 +27,7 @@ const User = mongoose.model('User', {
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
+
 
 // Render the user registration page
 app.get('/', (req, res) => {
