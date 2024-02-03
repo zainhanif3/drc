@@ -6,6 +6,7 @@ const bcrypt = require ("bcrypt");
 const app = express();
 const port = 3000;
 const path = require ("path")
+const MongoClient = require ('mongodb').MongoClient;
 
 
 mongoose.connect('mongodb://localhost:27017/drc', { useNewUrlParser: true, useUnifiedTopology: true });
@@ -168,6 +169,7 @@ app.post('/signin', async (req, res) => {
     }else{
       res.send("password not match");
     }
+    
    
 
     // Redirect to the portal page after successful sign-in
@@ -177,6 +179,8 @@ app.post('/signin', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
+
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
