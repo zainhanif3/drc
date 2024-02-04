@@ -35,7 +35,8 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 app.get('/portal',(req,res)=>{
-  res.render('portal')
+  res.render('portal',)
+  
 })
 
 // Handle user registration

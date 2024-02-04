@@ -1,94 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Website</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-  
-
-  <!-- Navbar -->
-  <nav class="bg-blue-500 p-4">
-    <div class="container mx-auto flex justify-between items-center">
-      <!-- Logo or website name can be added here -->
-
-      <!-- Navigation Links -->
-      <div class="space-x-4">
-        <a href="/views/portal.hbs" class="text-white hover:text-gray-200">Home</a>
-        <a href="/views/about.hbs" class="text-white hover:text-gray-200">About</a>
-        <div class="searchbar">
-          <input type="text" name="searchbar" id="searchbar" placeholder="Search">
-          <button type="submit">Search</button>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!DOCTYPE html>
-  <html lang="en">
-  
-  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dispute Resolution Council</title>
-    <!-- Add your CSS styles or link to an external stylesheet here -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  </head>
-  
-  <body class="bg-gray-100">
-    <!-- views/home.hbs -->
-
-
-
-
+    <link rel="stylesheet" href="/src/style.css">
     
-  
-    <header class="bg-blue-500 text-white text-center py-4">
-      <h1 class="text-3xl font-bold">Dispute Resolution Council</h1>
-    </header>
-  
-    <section class="container mx-auto my-8 p-8 bg-white shadow-lg rounded-lg">
-      <h2 class="text-2xl font-bold mb-4">File a Case</h2>
-  
-      <form action="/file-case" method="POST" class="mb-4">
-        <div class="mb-4">
-          <label for="description" class="block text-sm font-medium text-gray-700">Case Description</label>
-          <textarea id="description" name="description" rows="3" class="mt-1 p-2 border rounded-md w-full" required></textarea>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Your Website</title>
+   
+</head>
+<body class="font-sans bg-blue-300 w-full h-full">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-600 p-3 max-w-[1024px] text-white grid grid-cols-2 ">
+
+        <!-- Home Button -->
+        <a href="#" class="text-3xl font-bold self-center">Dispute Resolution Council</a>
+
+        <!-- Search Input -->
+        <div class="place-self-end ">
+            <form action="GET" method="GET">
+
+             <input type="text" placeholder="Search" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+             <button type="submit"><i class="fa fa-search"></i>Search</button>
+            </form>
+        
         </div>
-  
-        <div class="mb-4">
-          <label for="defendantName" class="block text-sm font-medium text-gray-700">Defendant's Name</label>
-          <input type="text" id="defendantName" name="defendantName" class="mt-1 p-2 border rounded-md w-full" required>
-        </div>
-  
-        <div class="mb-4">
-          <label for="defendantAddress" class="block text-sm font-medium text-gray-700">Defendant's Address</label>
-          <input type="text" id="defendantAddress" name="defendantAddress" class="mt-1 p-2 border rounded-md w-full" required>
-        </div>
-  
-        <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md">Submit Case</button>
-     
-      </form>
-      
-  
-      <!-- Display existing cases, if any -->
-  
-    </section>
-  
-    <footer class="bg-blue-500 text-white text-center py-4">
-      <!-- Add any footer content or links here -->
-    </footer>
-  
-  </body>
-  
-  </html>
-  
- 
 
 
+    </nav>
 
+    <div class="container flex ">
+        <div class="sidebar">
+            <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
+                <li class=""><a href="">Home</a></li>
+
+            </ul>
+            <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
+                <li class=""><a href="">Cases</a></li>
+            </ul>
+            <!-- <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
+                <li class=""><a href="">New case</a></li>
+            </ul> -->
+            <ul class="text-yellow-100  text-center font-bold text-lg p-4 border  ">
+                <li class=""><a href="/views/sign-in.hbs">Log-Out</a></li>
+            </ul>
+        </div>
+        <div class="dform font-bold">
+            <form action="" method="POST" class="form flex flex-col gap-2">
+                 Name <input type="text" name="dpn" id="txt" placeholder="     Dispute Person Name">
+                 Father Name <input type="text" name="dfn" id="txt" placeholder="       Dispute Person Father Name">
+                 Contact Number <input type="text" name="dcn" id="txt" placeholder="      If / any">
+                 Address <input type="text" name="da" id="txt" placeholder="    Dispute Person Address">
+                 Case Detail  <label for="address" class="block text-gray-700 text-sm font-bold mb-2"></label>
+                 <textarea id="txt1" name="address" class="border rounded w-full py-2 px-3" required></textarea>
+                 <label for="dispute-type" class="block text-gray-700 text-sm font-bold mb-2">Dispute Type</label>
+                 <select id="dispute-type" name="disputeType" class="border rounded w-30 py-2 px-3" required>
+                     <option value="Money/Loan">Money/Loan</option>
+                     <option value="Home">Home</option>
+                     <option value="Land">Land</option>
+                     <option value="Vehicle">Vehicle</option>
+                     <option value="Assault">Assault</option>
+                     <option value="Others">Others</option>
+                 </select>
+                 <button type="submit" class="registerbtn"> Register Case </button>
+                 
+                
+            </form>
+            
+        </div>
+    </div>
+    
 
 </body>
 </html>
