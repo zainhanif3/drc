@@ -54,7 +54,7 @@ app.post('/register', async (req, res) => {
         });
 
         await newUser.save();
-        res.redirect('/portal'); // Redirect to portal or any other page
+        res.redirect('/sign-in'); // Redirect to portal or any other page
     } catch (error) {
         console.error('Error saving user:', error);
         res.status(500).send('Internal Server Error');
