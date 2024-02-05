@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cases Detail </title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        li:hover{
+        color: aqua;
+        
+    }
+    .sidebar:hover{
+    background-color:black ;
+    
+}
+.sidebar{
+    border-radius: 40px;
+    margin-top: 100px;
+  width: 200px;
+  height: 190px;
+  background-color: rgb(87, 82, 82);
+}
+#bix1{
+    border: solid red;
+    width: 300px;
+    background:linear-gradient(rgb(140, 145, 140),rgb(0, 255, 213)) ;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+
+    
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-gray-600 p-3 max-w-[1024px] text-white grid grid-cols-2 ">
+
+        <!-- Home Button -->
+        <a href="#" class="text-3xl font-bold self-center">Dispute Resolution Council</a>
+
+        <!-- Search Input -->
+        <div class="place-self-end ">
+            <form action="GET" method="GET">
+
+             <input type="text" placeholder="Search" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
+             <button type="submit"><i class="fa fa-search"></i>Search</button>
+            </form>
+        
+        </div>
+
+
+    </nav>
+    <div class="container flex  ">
+        <div class="sidebar grid grid-row-3 ml-4">
+            <ul class="text-yellow-100 text-center font-bold text-lg p-4 ">
+                <li class=""><a href="">Home</a></li>
+
+            </ul>
+            <ul class="text-yellow-100 text-center font-bold text-lg p-4  ">
+                <li class=""><a href="">Cases</a></li>
+            </ul>
+            <!-- <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
+                <li class=""><a href="">New case</a></li>
+            </ul> -->
+            <ul class="text-yellow-100  text-center font-bold text-lg p-4   ">
+                <li class=""><a href="/views/sign-in">Log-Out</a></li>
+            </ul>
+        </div>
+        <div class="flex-box" id="bix1">
+            <form action="" method="GET" name="pendingcase"><h1 class=" text-lg">Pending Cases</h1>
+            
+            </form>
+        </div>
+        <div class="flex-box" id="bix1">bix1</div>
+        <div class="flex-box" id="bix1">bix1</div>
+
+    
+        
+    </div>
+</body>
+</html>

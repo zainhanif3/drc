@@ -38,6 +38,10 @@ app.get('/portal',(req,res)=>{
   res.render('portal',)
   
 })
+app.get('/cases',(req,res)=>{
+  res.render('cases',)
+  
+})
 
 // Handle user registration
 app.post('/register', async (req, res) => {
@@ -180,6 +184,7 @@ app.post('/signin', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
 
 
 
