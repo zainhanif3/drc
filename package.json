@@ -19,6 +19,7 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.2",
+    "express": "^4.19.1",
     "fs": "^0.0.1-security",
     "hbs": "^4.2.0",
     "init": "^0.1.2",
@@ -26,10 +27,7 @@
     "mongoose": "^8.0.3",
     "mysql": "^2.18.1",
     "node": "^21.7.1",
-    "nodej": "^1.0.1",
-    "nodejs": "^0.0.0",
     "nodemailer": "^6.9.7",
-    "nodemon": "^3.1.0",
     "path": "^0.12.7",
     "remixicon": "^4.1.0",
     "tailwind": "^4.0.0"
