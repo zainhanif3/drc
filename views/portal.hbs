@@ -29,8 +29,8 @@
     <nav class="bg-gray-600 p-3 max-w-[1024px] text-white grid grid-cols-2">
 
       <!-- Home Button -->
-      <a href="#" class="text-3xl font-bold self-center">Dispute Resolution
-        Council</a>
+      <a href="/portal" class="text-3xl font-bold self-center">Dispute
+        Resolution Council</a>
 
       <!-- Search Input -->
       <div class="place-self-end">
@@ -51,11 +51,11 @@
     <div class="container flex">
       <div class="sidebar grid grid-row-3 ml-4">
         <ul class="text-yellow-100 text-center font-bold text-lg p-4">
-          <li class=""><a href="">Home</a></li>
+          <li class=""><a href="/portal">Home</a></li>
 
         </ul>
         <ul class="text-yellow-100 text-center font-bold text-lg p-4">
-          <li class=""><a href="">Cases</a></li>
+          <li class=""><a href="/cases">Cases</a></li>
         </ul>
         <!-- <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
                 <li class=""><a href="">New case</a></li>
@@ -123,6 +123,12 @@
 
       </div>
     </div>
+    <script>
+      // Retrieve success query parameter from URL const urlParams = new
+      URLSearchParams(window.location.search); const success =
+      urlParams.get('success'); // Show alert if success parameter is true if
+      (success === 'true') { alert('Case registered successfully'); }
+    </script>
 
   </body>
 </html>
