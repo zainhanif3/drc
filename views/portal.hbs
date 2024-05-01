@@ -1,129 +1,128 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="/src/style.css"> -->
-    
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
     <title>Your Website</title>
-<style>
-    li:hover{
-        color: aqua;
-        
-    }
-.sidebar:hover{
-    background-color:black ;
-    
-}
-.sidebar{
-    border-radius: 40px;
-    margin-top: 100px;
-  width: 200px;
-  height: 190px;
-  background-color: rgb(87, 82, 82);
-}
-
-.dform{
-  border-radius: 30px;
-  background-color: rgb(212, 209, 209);
-  margin-top: 20px;
-  margin-left: 300px;
-  display: flex;
-  padding: 10px;
-  width: 750px;
-  height: 700px;
-  justify-content: center;
-  align-items: center;
-}
-
-.registerbtn{
-  background-color: rgb(44, 101, 151);
-  color: white;
-  border-radius: 50px;
-  padding: 6px;
-  margin-top: 20px;
-  margin-left: 150px;
-  width: 200px;
-  height: 70px;
-}
-
-#txt{
-  width: 500px;
-  height: 40px;
-  border-radius: 30px;
-}
-
-#txt1{
-  width: 500px;
-  height: 80px;
-  border-radius: 20px;
-}
+    <style>
+      li:hover{ color: aqua; } .sidebar:hover{ background-color:black ; }
+      .sidebar{ border-radius: 40px; margin-top: 100px; width: 200px; height:
+      190px; background-color: rgb(87, 82, 82); } .dform{ border-radius: 30px;
+      background-color: rgb(212, 209, 209); margin-top: 20px; margin-left:
+      300px; display: flex; padding: 10px; width: 750px; height: 700px;
+      justify-content: center; align-items: center; } .registerbtn{
+      background-color: rgb(44, 101, 151); color: white; border-radius: 50px;
+      padding: 6px; margin-top: 20px; margin-left: 150px; width: 200px; height:
+      70px; } #txt{ width: 500px; height: 40px; border-radius: 30px; } #txt1{
+      width: 500px; height: 80px; border-radius: 20px; }
     </style>
-   
-</head>
-<body class="font-sans bg-blue-300 w-full h-full">
+
+  </head>
+  <body class="font-sans bg-blue-300 w-full h-full">
 
     <!-- Navbar -->
-    <nav class="bg-gray-600 p-3 max-w-[1024px] text-white grid grid-cols-2 ">
+    <nav class="bg-gray-600 p-3 max-w-[1024px] text-white grid grid-cols-2">
 
-        <!-- Home Button -->
-        <a href="#" class="text-3xl font-bold self-center">Dispute Resolution Council</a>
+      <!-- Home Button -->
+      <a href="#" class="text-3xl font-bold self-center">Dispute Resolution
+        Council</a>
 
-        <!-- Search Input -->
-        <div class="place-self-end ">
-            <form action="GET" method="GET">
+      <!-- Search Input -->
+      <div class="place-self-end">
+        <form action="GET" method="GET">
 
-             <input type="text" placeholder="Search" class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500">
-             <button type="submit"><i class="fa fa-search"></i>Search</button>
-            </form>
-        
-        </div>
+          <input
+            type="text"
+            placeholder="Search"
+            class="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+          />
+          <button type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
 
+      </div>
 
     </nav>
 
-    <div class="container flex  ">
-        <div class="sidebar grid grid-row-3 ml-4">
-            <ul class="text-yellow-100 text-center font-bold text-lg p-4 ">
-                <li class=""><a href="">Home</a></li>
+    <div class="container flex">
+      <div class="sidebar grid grid-row-3 ml-4">
+        <ul class="text-yellow-100 text-center font-bold text-lg p-4">
+          <li class=""><a href="">Home</a></li>
 
-            </ul>
-            <ul class="text-yellow-100 text-center font-bold text-lg p-4  ">
-                <li class=""><a href="">Cases</a></li>
-            </ul>
-            <!-- <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
+        </ul>
+        <ul class="text-yellow-100 text-center font-bold text-lg p-4">
+          <li class=""><a href="">Cases</a></li>
+        </ul>
+        <!-- <ul class="text-yellow-100 text-center font-bold text-lg p-4 border  ">
                 <li class=""><a href="">New case</a></li>
             </ul> -->
-            <ul class="text-yellow-100  text-center font-bold text-lg p-4   ">
-                <li class=""><a href="/views/sign-in">Log-Out</a></li>
-            </ul>
-        </div>
-        <div class="dform font-bold">
-            <form action="/portal" method="POST" class="form flex flex-col gap-2">
-                 Name <input type="text" name="dpn" id="txt" placeholder="     Dispute Person Name">
-                 Father Name <input type="text" name="dfn" id="txt" placeholder="       Dispute Person Father Name">
-                 Contact Number <input type="text" name="dcn" id="txt" placeholder="      If / any">
-                 Address <input type="text" name="da" id="txt" placeholder="    Dispute Person Address">
-                 Case Detail  <label for="address" class="block text-gray-700 text-sm font-bold mb-2"></label>
-                 <textarea id="txt1" name="address" class="border rounded w-full py-2 px-3" required></textarea>
-                 <label for="dispute-type" class="block text-gray-700 text-sm font-bold mb-2">Dispute Type</label>
-                 <select id="dispute-type" name="disputeType" class="border rounded w-30 py-2 px-3" required>
-                     <option value="Money/Loan">Money/Loan</option>
-                     <option value="Home">Home</option>
-                     <option value="Land">Land</option>
-                     <option value="Vehicle">Vehicle</option>
-                     <option value="Assault">Assault</option>
-                     <option value="Others">Others</option>
-                 </select>
-                 <button type="submit" class="registerbtn"> Register Case </button>
-                 
-                
-            </form>
-            
-        </div>
-    </div>
-    
+        <ul class="text-yellow-100 text-center font-bold text-lg p-4">
+          <li class=""><a href="sign-in">Log-Out</a></li>
+        </ul>
+      </div>
+      <div class="dform font-bold">
+        <form action="/portal" method="POST" class="form flex flex-col gap-2">
+          Name
+          <input
+            type="text"
+            name="dpn"
+            id="txt"
+            placeholder="     Dispute Person Name"
+          />
+          Father Name
+          <input
+            type="text"
+            name="dfn"
+            id="txt"
+            placeholder="       Dispute Person Father Name"
+          />
+          Contact Number
+          <input type="text" name="dcn" id="txt" placeholder="      If / any" />
+          Address
+          <input
+            type="text"
+            name="da"
+            id="txt"
+            placeholder="    Dispute Person Address"
+          />
+          Case Detail
+          <label
+            for="address"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          ></label>
+          <textarea
+            id="txt1"
+            name="address"
+            class="border rounded w-full py-2 px-3"
+            required
+          ></textarea>
+          <label
+            for="dispute-type"
+            class="block text-gray-700 text-sm font-bold mb-2"
+          >Dispute Type</label>
+          <select
+            id="dispute-type"
+            name="disputeType"
+            class="border rounded w-30 py-2 px-3"
+            required
+          >
+            <option value="Money/Loan">Money/Loan</option>
+            <option value="Home">Home</option>
+            <option value="Land">Land</option>
+            <option value="Vehicle">Vehicle</option>
+            <option value="Assault">Assault</option>
+            <option value="Others">Others</option>
+          </select>
+          <button type="submit" class="registerbtn"> Register Case </button>
 
-</body>
+        </form>
+
+      </div>
+    </div>
+
+  </body>
 </html>

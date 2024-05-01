@@ -1,115 +1,47 @@
-<!-- public/signup.html -->
-
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Signup</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-200 font-sans flex justify-center items-center min-h-screen">
 
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-    />
-    <title>User Signup</title>
-  </head>
-  <body class="bg-gray-200 font-sans">
+  <div class="w-full max-w-md p-8 rounded shadow-md bg-white">
+    <h1 class="text-2xl font-semibold mb-6">User Signup</h1>
+    <form action="/register" method="POST" class="grid grid-cols-1 gap-4">
+      <div class="grid grid-cols-1 gap-2">
+        <label for="name" class="text-gray-700 text-sm font-bold mb-1">Name</label>
+        <input type="text" id="name" name="name" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <label for="fathername" class="text-gray-700 text-sm font-bold mb-1">Father Name</label>
+        <input type="text" id="fathername" name="fathername" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <label for="email" class="text-gray-700 text-sm font-bold mb-1">Email</label>
+        <input type="text" id="email" name="email" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <label for="cnic" class="text-gray-700 text-sm font-bold mb-1">CNIC</label>
+        <input type="number" id="cnic" name="cnic" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <label for="contactnumber" class="text-gray-700 text-sm font-bold mb-1">Contact Number</label>
+        <input type="number" id="contactnumber" name="contactnumber" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <label for="address" class="text-gray-700 text-sm font-bold mb-1">Address</label>
+        <input type="text" id="address" name="address" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        <label for="password" class="text-gray-700 text-sm font-bold mb-1">Password</label>
+        <input type="password" id="password" name="password" class="border rounded w-full py-2 px-3 focus:outline-none focus:ring-blue-500 focus:ring-1" required>
+      </div>
+      <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">Signup</button>
+    </form>
+  </div>
 
-    <div class="container mx-20 mt-10 p-5">
-      <h1 class="text-2xl font-semibold mb-6">User Signup</h1>
-      <form action="/register" method="POST" class="grid grid-cols-2 gap-6 ">
-        <!-- First Column -->
-        <div>
-          <label
-            for="name"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="fathername"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Father Name</label>
-          <input
-            type="text"
-            id="fathername"
-            name="fathername"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="email"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Email</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="cnic"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >CNIC</label>
-          <input
-            type="number"
-            id="cnic"
-            name="cnic"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="contactnumber"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Contact Number</label>
-          <input
-            type="number"
-            id="contactnumber"
-            name="contactnumber"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="address"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Address</label>
-          <input
-            type="text"
-            id="address"
-            name="address"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-          <label
-            for="password"
-            class="block text-gray-700 text-sm font-bold mb-2"
-          >Password</label>
-          <input
-            type="text"
-            id="password"
-            name="password"
-            class="border rounded w-full py-2 px-3"
-            required
-          />
-
-          <!-- Repeat the above pattern for other fields in the first column -->
-        </div>
-
-        
-        
-
-        <div class="col-span-2 ">
-          <button
-            type="submit"
-            class="bg-blue-500 text-white py-2 px-4 rounded"
-          >Signup</button>
-        </div>
-      </form>
-    </div>
-
-  </body>
+</body>
 </html>

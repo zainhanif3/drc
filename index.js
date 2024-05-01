@@ -25,7 +25,7 @@ const User = mongoose.model('User', {
   hearingDate: Date
 });
 
-
+app.use("/img", express.static(path.join(__dirname, 'img')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 
@@ -186,6 +186,53 @@ app.post('/signin', async (req, res) => {
 });
 
 
+app.post('/forgot', async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      return res.status(404).send('User not found');
+    }
+
+    // Generate new password
+    const newPassword = uuidv4().slice(0, 8); // Generate an 8-character password
+
+    // Hash the new password
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    // Update user password
+    await User.updateOne({ email }, { password: hashedPassword });
+
+    // Send email with new password
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'your_email@gmail.com',
+        pass: 'your_password',
+      },
+    });
+
+    const mailOptions = {
+      from: 'your_email@gmail.com',
+      to: email,
+      subject: 'New Password',
+      text: `Your new password is: ${newPassword}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+
+    res.send('New password sent to your email');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 
 app.listen(port, () => {
