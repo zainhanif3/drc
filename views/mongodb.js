@@ -1,5 +1,5 @@
 const mongoose = require (mongoose)
-mongoose.coonect("mogodb://localhost:27017/drc")
+mongoose.connect("mongodb://localhost:27017/drc")
 .then(()=>{
     console.log("mongo connected");
 })
